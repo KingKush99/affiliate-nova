@@ -247,3 +247,250 @@ function renderTopModels(){
 })();
 // Auto-render on load for profile or index
 document.addEventListener("DOMContentLoaded", ()=>{ renderProfile(); if(document.getElementById("lbTabs")){ renderTopModels(); } });
+
+
+
+// ---------- Settings Modal (Quiz) injected at runtime ----------
+(function injectQuizSettings(){
+  const html = `
+  <div id="quizSettings" class="fixed inset-0 hidden z-50">
+    <div class="absolute inset-0 bg-black/70"></div>
+    <div class="relative mx-auto mt-16 w-[94%] max-w-xl bg-surface border border-white/10 rounded-2xl p-6">
+      <div class="flex items-center justify-between mb-3"><h3 class="text-xl font-semibold">Quiz Settings</h3><button id="qsClose" class="px-2 py-1 rounded bg-white/10">✕</button></div>
+      <div class="space-y-4 text-sm">
+        <div>
+          <div class="text-slate-300 mb-1">Questions</div>
+          <div class="flex gap-2 flex-wrap" id="qsCount">
+            ${[10,25,50,100].map(n=>`<label class="chip"><input type="radio" name="qsN" value="${n}" class="mr-1"> ${n}</label>`).join('')}
+          </div>
+        </div>
+        <div>
+          <div class="text-slate-300 mb-1">Mode</div>
+          <label class="chip mr-2"><input type="radio" name="qsMode" value="single" class="mr-1" checked> Single player</label>
+          <label class="chip"><input type="radio" name="qsMode" value="local2" class="mr-1"> Local multiplayer (pass & play)</label>
+          <div class="mt-2 grid grid-cols-2 gap-2" id="qsPlayers" style="display:none">
+            <input id="p1Name" class="px-3 py-2 rounded-xl bg-surface border border-white/10" placeholder="Player 1 (You)">
+            <input id="p2Name" class="px-3 py-2 rounded-xl bg-surface border border-white/10" placeholder="Player 2 name">
+          </div>
+          <div class="mt-2 text-xs text-slate-400">Each question has <b>5 seconds</b>. Timeouts are counted as incorrect.</div>
+        </div>
+        <div>
+          <div class="text-slate-300 mb-1">Image Bank</div>
+          <p class="text-xs text-slate-400">Add pairs in the format <code>Name | ImageURL</code>, one per line. The URLs can point to your CDN or public storage. (No explicit images are included in this demo.)</p>
+          <textarea id="bankInput" class="w-full h-28 mt-2 px-3 py-2 rounded-xl bg-surface border border-white/10" placeholder="Jane Doe | https://.../jane.jpg"></textarea>
+          <div class="flex items-center gap-2 mt-2"><button id="bankImport" class="px-3 py-2 rounded-xl bg-slate-700">Import into Bank</button><span id="bankCount" class="text-xs text-slate-400">0 in bank</span></div>
+        </div>
+        <div class="flex gap-2">
+          <button id="qsStart" class="px-4 py-2 rounded-xl bg-brand">Start</button>
+          <button id="qsCancel" class="px-4 py-2 rounded-xl bg-slate-700">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>`;
+  document.body.insertAdjacentHTML('beforeend', html);
+  const modal=$("#quizSettings");
+  $("#qsClose")?.addEventListener("click",()=>modal.classList.add("hidden"));
+  $("#qsCancel")?.addEventListener("click",()=>modal.classList.add("hidden"));
+  document.addEventListener("change",(e)=>{
+    if(e.target.name==="qsMode"){
+      const two=e.target.value==="local2"; $("#qsPlayers").style.display=two?'grid':'none';
+    }
+  });
+  $("#bankImport")?.addEventListener("click",()=>{
+    const txt=$("#bankInput").value||"";
+    const rows=txt.split(/\n+/).map(s=>s.trim()).filter(Boolean);
+    const add=[];
+    rows.forEach(line=>{
+      const m=line.split("|"); if(m.length>=2){
+        add.push({name:m[0].trim(), img:m.slice(1).join("|").trim()});
+      }
+    });
+    const key="nc_bank"; const cur=JSON.parse(localStorage.getItem(key)||"[]");
+    const merged=[...cur, ...add].slice(-10000); // cap 10k
+    localStorage.setItem(key, JSON.stringify(merged));
+    $("#bankCount").textContent = merged.length+" in bank";
+  });
+  $("#qsStart")?.addEventListener("click",()=>{
+    const n = parseInt((document.querySelector("input[name='qsN']:checked")?.value)||"10",10);
+    const mode = (document.querySelector("input[name='qsMode']:checked")?.value)||"single";
+    const p1 = $("#p1Name").value.trim() || "You";
+    const p2 = $("#p2Name").value.trim() || "Player 2";
+    modal.classList.add("hidden");
+    launchQuiz({n,mode,p1,p2});
+  });
+  $("#quizOpen")?.addEventListener("click",(e)=>{e.preventDefault(); $("#bankCount").textContent=(JSON.parse(localStorage.getItem('nc_bank')||'[]').length||0)+' in bank'; modal.classList.remove("hidden");});
+})();
+
+// --- Quiz data selection: prefer user bank, fallback to data/quiz.json ---
+async function pickQuizSet(N){
+  const bank = JSON.parse(localStorage.getItem("nc_bank")||"[]");
+  let pool = Array.isArray(bank)&&bank.length ? bank : await fetch('data/quiz.json?nocache='+Date.now(),{cache:'no-store'}).then(r=>r.json()).catch(()=>DEFAULT_QUIZ);
+  pool = pool.filter(x=>x && x.name && x.img);
+  // sample without replacement
+  const out=[]; const used=new Set(); while(out.length<Math.min(N,pool.length)){
+    const i=Math.floor(Math.random()*pool.length); if(used.has(i)) continue; used.add(i); out.push(pool[i]);
+  }
+  return out;
+}
+
+// --- Timed quiz runner with 5s timer & local multiplayer + ELO ---
+const ELO_KEY="nc_elo";
+function getElo(name){ const all=JSON.parse(localStorage.getItem(ELO_KEY)||"{}"); return all[name]||1000; }
+function setElo(name,val){ const all=JSON.parse(localStorage.getItem(ELO_KEY)||"{}"); all[name]=Math.round(val); localStorage.setItem(ELO_KEY, JSON.stringify(all)); }
+function eloUpdate(aRating,bRating,aScore){ // aScore: 1 win, .5 draw, 0 loss
+  const K=32; const Qa=Math.pow(10, aRating/400), Qb=Math.pow(10, bRating/400);
+  const Ea=Qa/(Qa+Qb);
+  const newA = aRating + K*(aScore - Ea);
+  const newB = bRating + K*((1-aScore) - (1-Ea));
+  return [newA,newB];
+}
+async function launchQuiz({n,mode,p1,p2}){
+  const data = await pickQuizSet(n);
+  window.QUIZ = data; // reuse existing vars
+  let idx=0, correctA=0, correctB=0, total=data.length;
+  let currPlayer= 'A'; // for local2
+  const start = Date.now();
+  function updateUI(){
+    $("#quizProgress").textContent = `${idx+1} / ${total} — ${currPlayer==='A'?p1:p2}`;
+  }
+  function ask(){
+    if(idx>=total){ return finish(); }
+    $("#quizImg").src = data[idx].img;
+    $("#quizGuess").value='';
+    $("#quizFeedback").textContent='';
+    updateUI();
+    $("#quizModal").classList.remove("hidden");
+    // 5s timer
+    let left=5;
+    const feedback=$("#quizFeedback");
+    feedback.classList.add("text-slate-400");
+    feedback.textContent=`${left}s`;
+    const t = setInterval(()=>{
+      left--; feedback.textContent=`${left}s`;
+      if(left<=0){ clearInterval(t); timeUp(); }
+    },1000);
+    function cleanup(){ clearInterval(t); }
+    function timeUp(){ cleanup(); judge(""); }
+    function judge(g){
+      const ok = matchAnswer(g || "", data[idx]);
+      if(ok){ if(mode==='local2'){ if(currPlayer==='A') correctA++; else correctB++; } else { correctA++; } }
+      $("#quizFeedback").innerHTML = (ok?`<span class='text-emerald-400 font-semibold'>Correct!</span>`:`<span class='text-rose-400 font-semibold'>Not quite.</span>`) + ` ${data[idx].name}`;
+      setTimeout(()=>{
+        idx++;
+        if(mode==='local2'){ currPlayer = (currPlayer==='A'?'B':'A'); }
+        ask();
+      },400);
+    }
+    $("#quizSubmit").onclick = ()=>{ const g=$("#quizGuess").value; cleanup(); judge(g); };
+    $("#quizGuess").onkeydown = (e)=>{ if(e.key==='Enter'){ cleanup(); judge($("#quizGuess").value); } };
+    $("#quizSkip").onclick = ()=>{ cleanup(); judge(""); };
+    $("#quizReveal").onclick = ()=>{ $("#quizFeedback").innerHTML=`<span class='text-slate-300'>${data[idx].name}</span>`; };
+  }
+  function finish(){
+    $("#quizModal").classList.add("hidden");
+    const ms = Date.now()-start;
+    // scoring rule: correct trumps time; we store each player's run
+    if(mode==='single'){
+      saveQuizResult(correctA,total,ms);
+      grantXP(400,"Quiz complete");
+    }else{
+      // each player gets a record; same total and time for simplicity
+      const msPer = Math.max(1, Math.round(ms/2));
+      // Store
+      saveQuizResult(correctA,total,msPer);
+      const recB = {correct:correctB,total,ms:msPer,ts:Date.now(),score:correctB*1e9-msPer};
+      const list = JSON.parse(localStorage.getItem(QUIZ_LOG)||"[]"); list.push(recB); localStorage.setItem(QUIZ_LOG, JSON.stringify(list));
+      // ELO
+      const aRating=getElo(p1), bRating=getElo(p2);
+      let aScore = (correctA===correctB)?0.5:(correctA>correctB?1:0);
+      const [newA, newB] = eloUpdate(aRating,bRating,aScore);
+      setElo(p1,newA); setElo(p2,newB);
+      grantXP(200, "Multiplayer match"); // smaller XP per player
+      alert(`${p1}: ${correctA}/${total} | ${p2}: ${correctB}/${total}\nELO: ${Math.round(aRating)}→${Math.round(newA)} vs ${Math.round(bRating)}→${Math.round(newB)}`);
+    }
+    renderTopQuizzers();
+    renderTopLevels();
+  }
+  ask();
+}
+
+// --- Extra leaderboards: Donors + integrated "Your Rank" & "Friends" ---
+function getFriendsList(){ try{ return JSON.parse(localStorage.getItem("an_friends_list")||"[]"); }catch(_){ return []; } }
+function setFriendsList(arr){ localStorage.setItem("an_friends_list", JSON.stringify(arr.slice(0,200))); }
+function sampleFriendsIfEmpty(){ if(!getFriendsList().length){ setFriendsList(["Alex","Sam","Taylor","Jordan","Casey"]); } }
+sampleFriendsIfEmpty();
+
+function getDonations(){ try{ return JSON.parse(localStorage.getItem("nc_donations")||"{}"); }catch(_){ return {}; } }
+function setDonation(user,amount){ const m=getDonations(); m[user]=(m[user]||0)+amount; localStorage.setItem("nc_donations", JSON.stringify(m)); }
+
+function rankList(list, meName=null, friendsOnly=false){
+  const arr=list.slice();
+  // compute position
+  arr.sort((a,b)=> (b.score??b.value??0) - (a.score??a.value??0));
+  const top10 = arr.slice(0,10);
+  let myEntry = null, myPos = null;
+  if(meName){
+    const idx = arr.findIndex(x=>x.name===meName);
+    if(idx>=0){ myPos = idx+1; myEntry = arr[idx]; }
+  }
+  if(friendsOnly){
+    const friends = new Set(getFriendsList());
+    return {list: top10.filter(x=>friends.has(x.name)), myEntry, myPos};
+  }
+  return {list: top10, myEntry, myPos};
+}
+
+function renderTopDonors(){
+  const wrap = document.getElementById("leaderboard"); if(!wrap) return;
+  const donations = getDonations();
+  // seed demo donors
+  if(Object.keys(donations).length<8){
+    ["Alex","Sam","Taylor","Jordan","Casey","Riley","Quinn","Avery","Morgan","Jamie","Parker","Finley"].forEach((n,i)=>{
+      donations[n] = donations[n] || Math.floor(100+i*50+Math.random()*4000);
+    });
+    donations["You"] = donations["You"] || Math.floor(Math.random()*500);
+    localStorage.setItem("nc_donations", JSON.stringify(donations));
+  }
+  const arr = Object.entries(donations).map(([name,val])=>({name,value:val}));
+  const ranked = rankList(arr, "You", false);
+  wrap.innerHTML="";
+  ranked.list.forEach((u,i)=>{
+    const el=document.createElement("div"); el.className="rounded-xl p-3 bg-surface border border-white/10";
+    el.innerHTML=`<div class='flex items-center gap-3'><div class='w-10 h-10 rounded bg-gradient-to-br from-brand to-brand2 grid place-items-center font-black'>${i+1}</div><div class='flex-1'><div class='font-semibold'>${u.name}</div><div class='text-xs text-slate-400'>Donated ${u.value.toLocaleString()} 💎</div></div></div>`;
+    wrap.append(el);
+  });
+  // my rank
+  if(ranked.myPos){ const b=document.createElement("div"); b.className="mt-3 text-xs text-slate-400"; b.textContent=`Your rank: #${ranked.myPos} — ${ranked.myEntry.value.toLocaleString()} 💎`; wrap.append(b); }
+}
+
+// Add a simple control block for leaderboard filters (Top / Friends / Me)
+(function addLBControls(){
+  const host=document.getElementById("lbTabs");
+  if(!host) return;
+  const ctl=document.createElement("div"); ctl.id="lbView"; ctl.className="ml-auto flex items-center gap-2 text-xs";
+  ctl.innerHTML=`<button class="px-2 py-1 rounded bg-white/10" data-view="top">Top 10</button><button class="px-2 py-1 rounded" data-view="friends">Friends</button><button class="px-2 py-1 rounded" data-view="me">Me</button>`;
+  host.parentElement.append(ctl);
+  ctl.addEventListener("click",(e)=>{
+    const b=e.target.closest("button[data-view]"); if(!b) return;
+    $$("#lbView button").forEach(x=>x.classList.remove("bg-white/10")); b.classList.add("bg-white/10");
+    const tab=document.querySelector("#lbTabs .bg-white\\/10")?.dataset.tab || "models";
+    if(tab==="models") renderTopModels();
+    if(tab==="levels") renderTopLevels();
+    if(tab==="quizzers") renderTopQuizzers();
+    if(tab==="donors") renderTopDonors();
+  });
+})();
+
+// Add a "Donors" tab
+(function addDonorTab(){
+  const tabs=document.getElementById("lbTabs");
+  if(!tabs) return;
+  const btn=document.createElement("button"); btn.className="px-3 py-1 rounded"; btn.dataset.tab="donors"; btn.textContent="Donors";
+  tabs.append(btn);
+  tabs.addEventListener("click",(e)=>{
+    const b=e.target.closest("button[data-tab='donors']"); if(!b) return;
+    $$("button[data-tab]").forEach(x=>x.classList.remove("bg-white/10")); b.classList.add("bg-white/10");
+    renderTopDonors();
+  });
+})();
+
