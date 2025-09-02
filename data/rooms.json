@@ -1,0 +1,425 @@
+[
+  {
+    "id": "nova-angel",
+    "name": "NovaAngel",
+    "title": "Chill chat & music",
+    "gender": "Women",
+    "region": "North America",
+    "tags": [
+      "chatting",
+      "music"
+    ],
+    "rate": 6,
+    "viewers": 2384,
+    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "tips": [
+      {
+        "label": "Wave hello",
+        "amount": 25
+      },
+      {
+        "label": "VIP shoutout",
+        "amount": 250
+      }
+    ]
+  },
+  {
+    "id": "cosmix-kai",
+    "name": "CosmixKai",
+    "title": "Cosplay & games",
+    "gender": "Trans",
+    "region": "Europe",
+    "tags": [
+      "cosplay",
+      "games"
+    ],
+    "rate": 18,
+    "viewers": 1522,
+    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "tips": [
+      {
+        "label": "Spin the wheel",
+        "amount": 50
+      }
+    ]
+  },
+  {
+    "id": "duo-vibes",
+    "name": "DuoVibes",
+    "title": "Couple Q&A",
+    "gender": "Couples",
+    "region": "South America",
+    "tags": [
+      "chatting"
+    ],
+    "rate": 12,
+    "viewers": 4210,
+    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "tips": [
+      {
+        "label": "Priority request",
+        "amount": 300
+      }
+    ]
+  },
+  {
+    "id": "room-4",
+    "name": "Creator4",
+    "title": "Game night",
+    "gender": "Men",
+    "region": "North America",
+    "tags": [
+      "music",
+      "cosplay"
+    ],
+    "rate": 90,
+    "viewers": 6269,
+    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "tips": [
+      {
+        "label": "Sticker pack",
+        "amount": 30
+      }
+    ]
+  },
+  {
+    "id": "room-5",
+    "name": "Creator5",
+    "title": "Hanging out & chatting",
+    "gender": "Trans",
+    "region": "North America",
+    "tags": [
+      "games",
+      "cosplay"
+    ],
+    "rate": 30,
+    "viewers": 4509,
+    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "tips": [
+      {
+        "label": "Sticker pack",
+        "amount": 30
+      }
+    ]
+  },
+  {
+    "id": "room-6",
+    "name": "Creator6",
+    "title": "Just vibing",
+    "gender": "Women",
+    "region": "Asia",
+    "tags": [
+      "new",
+      "games"
+    ],
+    "rate": 12,
+    "viewers": 4189,
+    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "tips": [
+      {
+        "label": "Sticker pack",
+        "amount": 30
+      }
+    ]
+  },
+  {
+    "id": "room-7",
+    "name": "Creator7",
+    "title": "Just vibing",
+    "gender": "Trans",
+    "region": "Asia",
+    "tags": [
+      "cosplay",
+      "games"
+    ],
+    "rate": 6,
+    "viewers": 3506,
+    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "tips": [
+      {
+        "label": "Sticker pack",
+        "amount": 30
+      }
+    ]
+  },
+  {
+    "id": "room-8",
+    "name": "Creator8",
+    "title": "New here!",
+    "gender": "Men",
+    "region": "South America",
+    "tags": [
+      "cosplay",
+      "games"
+    ],
+    "rate": 90,
+    "viewers": 4743,
+    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "tips": [
+      {
+        "label": "Sticker pack",
+        "amount": 30
+      }
+    ]
+  },
+  {
+    "id": "room-9",
+    "name": "Creator9",
+    "title": "Game night",
+    "gender": "Men",
+    "region": "South America",
+    "tags": [
+      "games",
+      "cosplay"
+    ],
+    "rate": 60,
+    "viewers": 4202,
+    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "tips": [
+      {
+        "label": "Sticker pack",
+        "amount": 30
+      }
+    ]
+  },
+  {
+    "id": "room-10",
+    "name": "Creator10",
+    "title": "New here!",
+    "gender": "Men",
+    "region": "Asia",
+    "tags": [
+      "cosplay",
+      "chatting"
+    ],
+    "rate": 30,
+    "viewers": 1369,
+    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "tips": [
+      {
+        "label": "Sticker pack",
+        "amount": 30
+      }
+    ]
+  },
+  {
+    "id": "room-11",
+    "name": "Creator11",
+    "title": "Hanging out & chatting",
+    "gender": "Women",
+    "region": "Europe",
+    "tags": [
+      "cosplay",
+      "chatting"
+    ],
+    "rate": 12,
+    "viewers": 4681,
+    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "tips": [
+      {
+        "label": "Sticker pack",
+        "amount": 30
+      }
+    ]
+  },
+  {
+    "id": "room-12",
+    "name": "Creator12",
+    "title": "New here!",
+    "gender": "Couples",
+    "region": "South America",
+    "tags": [
+      "new",
+      "games"
+    ],
+    "rate": 12,
+    "viewers": 5744,
+    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "tips": [
+      {
+        "label": "Sticker pack",
+        "amount": 30
+      }
+    ]
+  },
+  {
+    "id": "room-13",
+    "name": "Creator13",
+    "title": "Just vibing",
+    "gender": "Men",
+    "region": "North America",
+    "tags": [
+      "games",
+      "new"
+    ],
+    "rate": 90,
+    "viewers": 2814,
+    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "tips": [
+      {
+        "label": "Sticker pack",
+        "amount": 30
+      }
+    ]
+  },
+  {
+    "id": "room-14",
+    "name": "Creator14",
+    "title": "Hanging out & chatting",
+    "gender": "Women",
+    "region": "North America",
+    "tags": [
+      "music",
+      "games"
+    ],
+    "rate": 12,
+    "viewers": 1943,
+    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "tips": [
+      {
+        "label": "Sticker pack",
+        "amount": 30
+      }
+    ]
+  },
+  {
+    "id": "room-15",
+    "name": "Creator15",
+    "title": "Just vibing",
+    "gender": "Women",
+    "region": "Asia",
+    "tags": [
+      "games",
+      "new"
+    ],
+    "rate": 60,
+    "viewers": 7177,
+    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "tips": [
+      {
+        "label": "Sticker pack",
+        "amount": 30
+      }
+    ]
+  },
+  {
+    "id": "room-16",
+    "name": "Creator16",
+    "title": "Hanging out & chatting",
+    "gender": "Trans",
+    "region": "Asia",
+    "tags": [
+      "music",
+      "games"
+    ],
+    "rate": 60,
+    "viewers": 3519,
+    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "tips": [
+      {
+        "label": "Sticker pack",
+        "amount": 30
+      }
+    ]
+  },
+  {
+    "id": "room-17",
+    "name": "Creator17",
+    "title": "Game night",
+    "gender": "Men",
+    "region": "North America",
+    "tags": [
+      "chatting",
+      "new"
+    ],
+    "rate": 60,
+    "viewers": 3148,
+    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "tips": [
+      {
+        "label": "Sticker pack",
+        "amount": 30
+      }
+    ]
+  },
+  {
+    "id": "room-18",
+    "name": "Creator18",
+    "title": "Hanging out & chatting",
+    "gender": "Men",
+    "region": "North America",
+    "tags": [
+      "music",
+      "games"
+    ],
+    "rate": 6,
+    "viewers": 4395,
+    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "tips": [
+      {
+        "label": "Sticker pack",
+        "amount": 30
+      }
+    ]
+  },
+  {
+    "id": "room-19",
+    "name": "Creator19",
+    "title": "Just vibing",
+    "gender": "Couples",
+    "region": "Asia",
+    "tags": [
+      "chatting",
+      "games"
+    ],
+    "rate": 6,
+    "viewers": 4742,
+    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "tips": [
+      {
+        "label": "Sticker pack",
+        "amount": 30
+      }
+    ]
+  },
+  {
+    "id": "room-20",
+    "name": "Creator20",
+    "title": "Hanging out & chatting",
+    "gender": "Women",
+    "region": "Asia",
+    "tags": [
+      "cosplay",
+      "chatting"
+    ],
+    "rate": 12,
+    "viewers": 512,
+    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "tips": [
+      {
+        "label": "Sticker pack",
+        "amount": 30
+      }
+    ]
+  },
+  {
+    "id": "room-21",
+    "name": "Creator21",
+    "title": "Just vibing",
+    "gender": "Couples",
+    "region": "North America",
+    "tags": [
+      "games",
+      "cosplay"
+    ],
+    "rate": 60,
+    "viewers": 1418,
+    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "tips": [
+      {
+        "label": "Sticker pack",
+        "amount": 30
+      }
+    ]
+  }
+]
