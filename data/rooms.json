@@ -1,0 +1,10 @@
+[
+  {
+    "id": "demo-room",
+    "name": "Demo Creator",
+    "title": "Testing stream",
+    "category": "Chatting",
+    "viewers": 123,
+    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4"
+  }
+]
