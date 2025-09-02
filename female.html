@@ -2,34 +2,30 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Female — Affiliate-Nova</title><link rel="icon" href="assets/logo.svg">
 <script src="https://cdn.tailwindcss.com"></script>
-<script>tailwind.config={theme:{extend:{colors:{ink:'#0a0a0a',surface:'#111827',brand:'#0ea5e9',brand2:'#38bdf8'},boxShadow:{card:'0 8px 24px rgba(0,0,0,.35)'}}}};</script>
+<script>tailwind.config={theme:{extend:{colors:{ink:'#0a0a0a',surface:'#111827',brand:'#0ea5e9',brand2:'#38bdf8'}}}};</script>
 <style>.glass{backdrop-filter:blur(6px);background:rgba(17,24,39,.55)}.chip{padding:.25rem .75rem;border-radius:9999px;background:rgba(255,255,255,.08)}.chip:hover{background:rgba(255,255,255,.15)}.digit{display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:.5rem;background:rgba(249,209,58,.2);border:1px solid rgba(249,209,58,.4);color:#f9d13a;font-weight:700;margin:.125rem}.topbar{border-bottom:3px solid #0ea5e9}</style>
 </head><body class="bg-ink text-white min-h-screen">
 <div id="ageGate" class="fixed inset-0 hidden items-center justify-center bg-black/80 z-50">
   <div class="max-w-md w-[92%] rounded-2xl p-6 bg-surface border border-white/10">
     <h2 class="text-2xl font-semibold mb-2">Adults Only</h2>
     <p class="text-slate-300 mb-6">By entering you confirm you are 18+.</p>
-    <div class="flex gap-3">
-      <button id="enterSite" class="px-4 py-2 rounded-xl bg-brand">I am 18+</button>
-      <a href="https://www.google.com" class="px-4 py-2 rounded-xl bg-slate-700">Leave</a>
-    </div>
+    <div class="flex gap-3"><button id="enterSite" class="px-4 py-2 rounded-xl bg-brand">I am 18+</button>
+      <a href="https://www.google.com" class="px-4 py-2 rounded-xl bg-slate-700">Leave</a></div>
   </div>
 </div>
 <header class="topbar sticky top-0 z-40 bg-[#0c1426]/80 glass">
   <div class="mx-auto max-w-7xl px-4 py-3 flex items-center gap-4">
     <a href="index.html" class="flex items-center gap-3">
-      <img src="assets/logo.svg" class="w-9 h-9">
-      <div class="leading-tight">
+      <img src="assets/logo.svg" class="w-9 h-9"><div class="leading-tight">
         <div class="font-black text-xl">affiliate-nova</div>
         <div class="text-[10px] uppercase tracking-widest text-brand">broadcast • connect • earn</div>
-      </div>
-    </a>
+      </div></a>
     <nav class="ml-6 hidden md:flex gap-4 text-slate-200 text-sm">
       <a href="index.html">Home</a><a href="discover.html">Discover</a><a href="tags.html">Tags</a><a href="private.html">Private</a><a href="following.html">Following</a><a href="merch.html">Merch</a><button id="quizOpen">Quiz</button>
     </nav>
     <div class="ml-auto flex items-center gap-2 w-full md:w-auto">
       <div class="relative flex-1 md:flex-initial">
-        <input id="searchInput" placeholder="Search rooms…" class="w-full md:w-80 px-4 py-2 rounded-xl bg-surface border border-white/10 outline-none">
+        <input id="searchInput" placeholder="Search rooms…" class="w-full md:w-80 px-4 py-2 rounded-xl bg-surface border border-white/10">
         <span class="absolute right-3 top-2.5 text-slate-400">⌘K</span>
       </div>
       <button id="tokensBtn" class="px-3 py-2 rounded-xl bg-brand"><span id="tokenBalance">0</span> tokens</button>
@@ -41,34 +37,48 @@
     <button class="chip" data-chip="All">All</button><button class="chip" data-chip="Women">Women</button><button class="chip" data-chip="Men">Men</button><button class="chip" data-chip="Couples">Couples</button><button class="chip" data-chip="Trans">Trans</button><button class="chip" data-chip="New">New</button><button class="chip" data-chip="Top">Top</button><button id="filterToggle" class="ml-auto chip">Filters</button>
   </div>
 </header>
+<!-- Image Guess Quiz Modal -->
 <div id="quizModal" class="fixed inset-0 hidden z-50"><div class="absolute inset-0 bg-black/70"></div>
-  <div class="relative mx-auto mt-16 w-[92%] max-w-2xl bg-surface border border-white/10 rounded-2xl p-6">
-    <div class="flex items-center justify-between mb-4"><h3 class="text-xl font-semibold">Room Finder Quiz</h3><button id="quizClose" class="px-2 py-1 rounded bg-white/10">✕</button></div>
-    <div class="space-y-4 text-sm">
-      <div><div class="font-semibold mb-1">Region</div><div class="flex flex-wrap gap-2">
-        <button class="chip quiz" data-q="region" data-v="North America">North America</button><button class="chip quiz" data-q="region" data-v="South America">South America</button><button class="chip quiz" data-q="region" data-v="Europe">Europe</button><button class="chip quiz" data-q="region" data-v="Asia">Asia</button></div></div>
-      <div><div class="font-semibold mb-1">Gender</div><div class="flex flex-wrap gap-2">
-        <button class="chip quiz" data-q="gender" data-v="Women">Women</button><button class="chip quiz" data-q="gender" data-v="Men">Men</button><button class="chip quiz" data-q="gender" data-v="Couples">Couples</button><button class="chip quiz" data-q="gender" data-v="Trans">Trans</button></div></div>
-      <div><div class="font-semibold mb-1">Room size</div><div class="flex flex-wrap gap-2">
-        <button class="chip quiz" data-q="size" data-v="Small">Small</button><button class="chip quiz" data-q="size" data-v="Mid">Mid</button><button class="chip quiz" data-q="size" data-v="High Traffic">High Traffic</button></div></div>
-      <div><div class="font-semibold mb-1">Tags</div><div class="flex flex-wrap gap-2">
-        <button class="chip quiz" data-q="tags" data-v="chatting">chatting</button><button class="chip quiz" data-q="tags" data-v="games">games</button><button class="chip quiz" data-q="tags" data-v="cosplay">cosplay</button><button class="chip quiz" data-q="tags" data-v="music">music</button></div></div>
+  <div class="relative mx-auto mt-12 w-[94%] max-w-2xl bg-surface border border-white/10 rounded-2xl p-6">
+    <div class="flex items-center justify-between mb-4"><h3 class="text-xl font-semibold">Guess the Creator</h3><button id="quizClose" class="px-2 py-1 rounded bg-white/10">✕</button></div>
+    <div id="quizWrap" class="space-y-4">
+      <img id="quizImg" class="w-full rounded-xl border border-white/10 aspect-video object-cover" alt="quiz image">
+      <input id="quizGuess" class="w-full px-3 py-2 rounded-xl bg-surface border border-white/10" placeholder="Type their name… (last name only, or first+last, or firstname+lastname)">
+      <div class="text-xs text-slate-400">Typos are okay — we’ll match close answers.</div>
+      <div class="flex gap-2"><button id="quizSubmit" class="px-4 py-2 rounded-xl bg-brand">Submit</button><button id="quizSkip" class="px-4 py-2 rounded-xl bg-slate-700">Skip</button><button id="quizReveal" class="px-4 py-2 rounded-xl bg-slate-700">Reveal</button></div>
+      <div id="quizFeedback" class="text-sm"></div><div id="quizProgress" class="text-sm text-slate-400"></div>
     </div>
-    <div class="mt-6 flex justify-end gap-2"><button id="quizClear" class="px-3 py-2 rounded-xl bg-slate-700">Clear</button><button id="quizApply" class="px-3 py-2 rounded-xl bg-brand">Apply</button></div>
   </div>
 </div>
-<main class='mx-auto max-w-3xl px-4 py-10 space-y-6 prose prose-invert'><h1>Female</h1><p>Female cams (demo).</p></main>
+<main class='mx-auto max-w-3xl px-4 py-10 prose prose-invert'><h1>Female</h1><p>Demo content.</p></main>
 <section class="mt-14"><div class="mx-auto max-w-7xl px-4 text-center space-y-4">
 <div><div class="uppercase text-yellow-300 text-sm tracking-widest">Online Now</div><div id="onlineDigits" class="mt-1"></div></div>
 <div><div class="uppercase text-yellow-300 text-sm tracking-widest">All Time Visitors</div><div id="visitorDigits" class="mt-1"></div></div></div></section>
 <footer class="mt-10 border-t border-white/10 pt-10 pb-6">
-<div class="mx-auto max-w-6xl px-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-sm"><div><h4 class="text-brand2 font-bold mb-2">Accessibility</h4><ul class="space-y-1"><li><a class="footer-link" href="accessibility.html">Accessibility Options</a></li><li><a class="footer-link" href="suggestions.html">Suggestions</a></li></ul></div><div><h4 class="text-blue-400 font-bold mb-2">Company</h4><ul class="space-y-1"><li><a class="footer-link" href="terms.html">Terms of Service</a></li><li><a class="footer-link" href="privacy.html">Privacy Policy</a></li><li><a class="footer-link" href="responsible.html">Responsible Use</a></li><li><a class="footer-link" href="aml.html">AML Policy</a></li><li><a class="footer-link" href="fair-play.html">Fair Play</a></li><li><a class="footer-link" href="credits.html">Credits</a></li></ul></div><div><h4 class="text-yellow-400 font-bold mb-2">Competitions</h4><ul class="space-y-1"><li><a class="footer-link" href="tournaments.html">Tournaments</a></li><li><a class="footer-link" href="registration.html">Registration</a></li><li><a class="footer-link" href="prizes.html">Prizes</a></li><li><a class="footer-link" href="player-of-the-month.html">Player of the Month</a></li><li><a class="footer-link" href="wall-of-fame.html">Wall of Fame</a></li><li><a class="footer-link" href="awards.html">Awards & Achievements</a></li></ul></div><div><h4 class="text-purple-400 font-bold mb-2">Legal</h4><ul class="space-y-1"><li><a class="footer-link" href="terms.html">Terms of Service</a></li><li><a class="footer-link" href="privacy.html">Privacy Policy</a></li><li><a class="footer-link" href="cookie.html">Cookie Policy</a></li><li><a class="footer-link" href="responsible.html">Responsible Use</a></li><li><a class="footer-link" href="aml.html">AML Policy</a></li><li><a class="footer-link" href="fair-play.html">Fair Play</a></li></ul></div><div><h4 class="text-orange-400 font-bold mb-2">Support</h4><ul class="space-y-1"><li><a class="footer-link" href="contact.html">Contact Us</a></li><li><a class="footer-link" href="help-center.html">Help Center</a></li><li><a class="footer-link" href="faqs.html">FAQs</a></li></ul></div><div><h4 class="text-pink-400 font-bold mb-2">Social Media</h4><ul class="space-y-1"><li><a class="footer-link" href="social.html#facebook">Facebook</a></li><li><a class="footer-link" href="social.html#twitter">Twitter/X</a></li><li><a class="footer-link" href="social.html#instagram">Instagram</a></li><li><a class="footer-link" href="social.html#snapchat">Snapchat</a></li><li><a class="footer-link" href="social.html#youtube">YouTube</a></li></ul></div></div>
+<div class="mx-auto max-w-6xl px-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-sm">
+<div><h4 class="text-brand2 font-bold mb-2">Accessibility</h4><ul class="space-y-1"><li><a href="accessibility.html">Accessibility Options</a></li><li><a href="suggestions.html">Suggestions</a></li></ul></div>
+<div><h4 class="text-blue-400 font-bold mb-2">Company</h4><ul class="space-y-1"><li><a href="terms.html">Terms of Service</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="responsible.html">Responsible Use</a></li><li><a href="aml.html">AML Policy</a></li><li><a href="fair-play.html">Fair Play</a></li><li><a href="credits.html">Credits</a></li></ul></div>
+<div><h4 class="text-yellow-400 font-bold mb-2">Competitions</h4><ul class="space-y-1"><li><a href="tournaments.html">Tournaments</a></li><li><a href="registration.html">Registration</a></li><li><a href="prizes.html">Prizes</a></li><li><a href="player-of-the-month.html">Player of the Month</a></li><li><a href="wall-of-fame.html">Wall of Fame</a></li><li><a href="awards.html">Awards & Achievements</a></li></ul></div>
+<div><h4 class="text-purple-400 font-bold mb-2">Legal</h4><ul class="space-y-1"><li><a href="terms.html">Terms of Service</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="cookie.html">Cookie Policy</a></li><li><a href="responsible.html">Responsible Use</a></li><li><a href="aml.html">AML Policy</a></li><li><a href="fair-play.html">Fair Play</a></li></ul></div>
+<div><h4 class="text-orange-400 font-bold mb-2">Support</h4><ul class="space-y-1"><li><a href="contact.html">Contact Us</a></li><li><a href="help-center.html">Help Center</a></li><li><a href="faqs.html">FAQs</a></li></ul></div>
+<div><h4 class="text-pink-400 font-bold mb-2">Social Media</h4><ul class="space-y-1"><li><a href="social.html#facebook">Facebook</a></li><li><a href="social.html#twitter">Twitter/X</a></li><li><a href="social.html#instagram">Instagram</a></li><li><a href="social.html#snapchat">Snapchat</a></li><li><a href="social.html#youtube">YouTube</a></li></ul></div></div>
 <div class="mx-auto max-w-6xl px-4 mt-8 flex flex-wrap items-center gap-3"><select class="px-3 py-2 rounded-xl bg-surface border border-white/10 text-sm"><option>English</option><option>Deutsch</option><option>Español</option><option>Français</option><option>Português</option></select>
 <div class="ml-auto flex gap-2"><a class="px-3 py-2 rounded-xl bg-slate-700" href="apps.html#ios">iOS App</a><a class="px-3 py-2 rounded-xl bg-slate-700" href="apps.html#android">Android App</a></div></div></footer>
 
 <section class="border-t border-white/10 py-10 bg-[#0c1426]/70">
-<div class="mx-auto max-w-7xl px-4 grid md:grid-cols-5 gap-8 text-sm text-slate-300"><div><h4 class="font-semibold mb-2">Free Cams by Age</h4><ul class="space-y-1"><li><a class="footer-link" href="age-18plus.html">Teen Cams (18+)</a></li><li><a class="footer-link" href="age-18-21.html">18 to 21 Cams</a></li><li><a class="footer-link" href="age-20-30.html">20 to 30 Cams</a></li><li><a class="footer-link" href="age-30-50.html">30 to 50 Cams</a></li><li><a class="footer-link" href="age-50plus.html">Mature Cams (50+)</a></li></ul></div><div><h4 class="font-semibold mb-2">Free Cams by Region</h4><ul class="space-y-1"><li><a class="footer-link" href="region-na.html">North American Cams</a></li><li><a class="footer-link" href="region-other.html">Other Region Cams</a></li><li><a class="footer-link" href="region-eu.html">Euro Russian Cams</a></li><li><a class="footer-link" href="region-asia.html">Asian Cams</a></li><li><a class="footer-link" href="region-sa.html">South American Cams</a></li></ul></div><div><h4 class="font-semibold mb-2">Available Private Shows</h4><ul class="space-y-1"><li><a class="footer-link" href="rate-6.html">6 Tokens per Minute</a></li><li><a class="footer-link" href="rate-12-18.html">12–18 Tokens per Minute</a></li><li><a class="footer-link" href="rate-30-42.html">30–42 Tokens per Minute</a></li><li><a class="footer-link" href="rate-60-72.html">60–72 Tokens per Minute</a></li><li><a class="footer-link" href="rate-90plus.html">90+ Tokens per Minute</a></li></ul></div><div><h4 class="font-semibold mb-2">Free Cams by Status</h4><ul class="space-y-1"><li><a class="footer-link" href="status-private.html">Private Shows</a></li><li><a class="footer-link" href="status-new.html">New Cams</a></li><li><a class="footer-link" href="status-gaming.html">Gaming Cams</a></li></ul></div><div><h4 class="font-semibold mb-2">Free Cams</h4><ul class="space-y-1"><li><a class="footer-link" href="featured.html">Featured Cams</a></li><li><a class="footer-link" href="female.html">Female Cams</a></li><li><a class="footer-link" href="male.html">Male Cams</a></li><li><a class="footer-link" href="couple.html">Couple Cams</a></li><li><a class="footer-link" href="trans.html">Trans Cams</a></li></ul></div></div>
-<div class="mx-auto max-w-7xl px-4 mt-8 text-slate-300 text-sm"><div class="flex flex-wrap gap-x-3 gap-y-2"><a class="footer-link" href="merch.html">Swag</a><span>|</span><a class="footer-link" href="terms.html">Terms & Conditions</a><span>|</span><a class="footer-link" href="privacy.html">Privacy Policy</a><span>|</span><a class="footer-link" href="support.html">Support</a><span>|</span><a class="footer-link" href="dmca.html">DMCA / Remove Content</a><span>|</span><a class="footer-link" href="feedback.html">Feedback</a><span>|</span><a class="footer-link" href="security.html">Security Center</a><span>|</span><a class="footer-link" href="law-enforcement.html">Law Enforcement</a><span>|</span><a class="footer-link" href="report.html">Report Nonconsensual/Abusive Content</a><span>|</span><a class="footer-link" href="billing.html">Billing</a><span>|</span><a class="footer-link" href="disable.html">Disable Account</a><span>|</span><a class="footer-link" href="apps.html">Apps</a><span>|</span><a class="footer-link" href="contest.html">Contest</a><span>|</span><a class="footer-link" href="affiliate.html">Affiliates</a><span>|</span><a class="footer-link" href="jobs.html">Jobs</a><span>|</span><a class="footer-link" href="sitemap.html">Sitemap</a></div>
+<div class="mx-auto max-w-7xl px-4 grid md:grid-cols-5 gap-8 text-sm text-slate-300">
+<div><h4 class="font-semibold mb-2">Free Cams by Age</h4><ul class="space-y-1">
+<li><a href="age-18plus.html">Teen Cams (18+)</a></li><li><a href="age-18-21.html">18 to 21 Cams</a></li><li><a href="age-20-30.html">20 to 30 Cams</a></li><li><a href="age-30-50.html">30 to 50 Cams</a></li><li><a href="age-50plus.html">Mature Cams (50+)</a></li></ul></div>
+<div><h4 class="font-semibold mb-2">Free Cams by Region</h4><ul class="space-y-1">
+<li><a href="region-na.html">North American Cams</a></li><li><a href="region-other.html">Other Region Cams</a></li><li><a href="region-eu.html">Euro Russian Cams</a></li><li><a href="region-asia.html">Asian Cams</a></li><li><a href="region-sa.html">South American Cams</a></li></ul></div>
+<div><h4 class="font-semibold mb-2">Available Private Shows</h4><ul class="space-y-1">
+<li><a href="rate-6.html">6 Tokens per Minute</a></li><li><a href="rate-12-18.html">12–18 Tokens per Minute</a></li><li><a href="rate-30-42.html">30–42 Tokens per Minute</a></li><li><a href="rate-60-72.html">60–72 Tokens per Minute</a></li><li><a href="rate-90plus.html">90+ Tokens per Minute</a></li></ul></div>
+<div><h4 class="font-semibold mb-2">Free Cams by Status</h4><ul class="space-y-1">
+<li><a href="status-private.html">Private Shows</a></li><li><a href="status-new.html">New Cams</a></li><li><a href="status-gaming.html">Gaming Cams</a></li></ul></div>
+<div><h4 class="font-semibold mb-2">Free Cams</h4><ul class="space-y-1">
+<li><a href="featured.html">Featured Cams</a></li><li><a href="female.html">Female Cams</a></li><li><a href="male.html">Male Cams</a></li><li><a href="couple.html">Couple Cams</a></li><li><a href="trans.html">Trans Cams</a></li></ul></div></div>
+<div class="mx-auto max-w-7xl px-4 mt-8 text-slate-300 text-sm">
+<div class="flex flex-wrap gap-x-3 gap-y-2"><a href="merch.html">Swag</a><span>|</span><a href="terms.html">Terms & Conditions</a><span>|</span><a href="privacy.html">Privacy Policy</a><span>|</span><a href="support.html">Support</a><span>|</span><a href="dmca.html">DMCA / Remove Content</a><span>|</span><a href="feedback.html">Feedback</a><span>|</span><a href="security.html">Security Center</a><span>|</span><a href="law-enforcement.html">Law Enforcement</a><span>|</span><a href="report.html">Report Nonconsensual/Abusive Content</a><span>|</span><a href="billing.html">Billing</a><span>|</span><a href="disable.html">Disable Account</a><span>|</span><a href="apps.html">Apps</a><span>|</span><a href="contest.html">Contest</a><span>|</span><a href="affiliate.html">Affiliates</a><span>|</span><a href="jobs.html">Jobs</a><span>|</span><a href="sitemap.html">Sitemap</a></div>
 <div class="mt-4 text-slate-400">Deutsch | English | Español | Français | Italiano | 한국어 | Polski | Português | Русский | 简体中文 | 繁體中文</div>
 <div class="mt-6 text-xs text-slate-500 leading-relaxed">18 U.S.C. 2257 compliance note (demo). Replace with your statement.</div></div></section>
 <script src="js/app.js"></script></body></html>

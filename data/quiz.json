@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Streamer Alpha",
+    "img": "assets/quiz/1.svg"
+  },
+  {
+    "name": "Creator Beta",
+    "img": "assets/quiz/2.svg"
+  },
+  {
+    "name": "Gamer Gamma",
+    "img": "assets/quiz/3.svg"
+  }
+]
