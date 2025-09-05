@@ -1,425 +1,285 @@
 [
   {
-    "id": "nova-angel",
-    "name": "NovaAngel",
-    "title": "Chill chat & music",
+    "id": 1,
+    "name": "Creator1",
+    "watching": 6711,
+    "region": "Europe",
+    "rate": 12,
     "gender": "Women",
+    "tags": [
+      "games",
+      "cosplay"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Creator2",
+    "watching": 6826,
     "region": "North America",
+    "rate": 60,
+    "gender": "Men",
+    "tags": [
+      "new",
+      "chatting"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Creator3",
+    "watching": 2494,
+    "region": "North America",
+    "rate": 12,
+    "gender": "Trans",
     "tags": [
       "chatting",
       "music"
-    ],
-    "rate": 6,
-    "viewers": 2384,
-    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    "tips": [
-      {
-        "label": "Wave hello",
-        "amount": 25
-      },
-      {
-        "label": "VIP shoutout",
-        "amount": 250
-      }
     ]
   },
   {
-    "id": "cosmix-kai",
-    "name": "CosmixKai",
-    "title": "Cosplay & games",
-    "gender": "Trans",
-    "region": "Europe",
-    "tags": [
-      "cosplay",
-      "games"
-    ],
-    "rate": 18,
-    "viewers": 1522,
-    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    "tips": [
-      {
-        "label": "Spin the wheel",
-        "amount": 50
-      }
-    ]
-  },
-  {
-    "id": "duo-vibes",
-    "name": "DuoVibes",
-    "title": "Couple Q&A",
-    "gender": "Couples",
-    "region": "South America",
-    "tags": [
-      "chatting"
-    ],
-    "rate": 12,
-    "viewers": 4210,
-    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    "tips": [
-      {
-        "label": "Priority request",
-        "amount": 300
-      }
-    ]
-  },
-  {
-    "id": "room-4",
+    "id": 4,
     "name": "Creator4",
-    "title": "Hanging out & chatting",
+    "watching": 6496,
+    "region": "Europe",
+    "rate": 12,
     "gender": "Women",
-    "region": "South America",
     "tags": [
-      "games",
       "music"
-    ],
-    "rate": 60,
-    "viewers": 6548,
-    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    "tips": [
-      {
-        "label": "Sticker pack",
-        "amount": 30
-      }
     ]
   },
   {
-    "id": "room-5",
+    "id": 5,
     "name": "Creator5",
-    "title": "Just vibing",
-    "gender": "Women",
+    "watching": 3183,
     "region": "Asia",
-    "tags": [
-      "cosplay",
-      "new"
-    ],
     "rate": 30,
-    "viewers": 3592,
-    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    "tips": [
-      {
-        "label": "Sticker pack",
-        "amount": 30
-      }
+    "gender": "Trans",
+    "tags": [
+      "new",
+      "chatting"
     ]
   },
   {
-    "id": "room-6",
+    "id": 6,
     "name": "Creator6",
-    "title": "Just vibing",
-    "gender": "Trans",
-    "region": "Europe",
-    "tags": [
-      "chatting",
-      "games"
-    ],
+    "watching": 375,
+    "region": "North America",
     "rate": 6,
-    "viewers": 2235,
-    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    "tips": [
-      {
-        "label": "Sticker pack",
-        "amount": 30
-      }
+    "gender": "Men",
+    "tags": [
+      "games",
+      "cosplay"
     ]
   },
   {
-    "id": "room-7",
+    "id": 7,
     "name": "Creator7",
-    "title": "Just vibing",
+    "watching": 5207,
+    "region": "Asia",
+    "rate": 30,
     "gender": "Women",
-    "region": "Europe",
     "tags": [
-      "cosplay",
-      "music"
-    ],
-    "rate": 60,
-    "viewers": 6245,
-    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    "tips": [
-      {
-        "label": "Sticker pack",
-        "amount": 30
-      }
+      "games",
+      "cosplay"
     ]
   },
   {
-    "id": "room-8",
+    "id": 8,
     "name": "Creator8",
-    "title": "Game night",
-    "gender": "Couples",
+    "watching": 6880,
+    "region": "Europe",
+    "rate": 12,
+    "gender": "Men",
+    "tags": [
+      "gaming"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Creator9",
+    "watching": 2407,
     "region": "South America",
+    "rate": 6,
+    "gender": "Men",
+    "tags": [
+      "games",
+      "cosplay"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Creator10",
+    "watching": 3955,
+    "region": "Europe",
+    "rate": 30,
+    "gender": "Women",
     "tags": [
       "chatting",
       "music"
-    ],
-    "rate": 30,
-    "viewers": 4381,
-    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    "tips": [
-      {
-        "label": "Sticker pack",
-        "amount": 30
-      }
     ]
   },
   {
-    "id": "room-9",
-    "name": "Creator9",
-    "title": "Game night",
-    "gender": "Couples",
-    "region": "North America",
-    "tags": [
-      "games",
-      "cosplay"
-    ],
-    "rate": 60,
-    "viewers": 2250,
-    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    "tips": [
-      {
-        "label": "Sticker pack",
-        "amount": 30
-      }
-    ]
-  },
-  {
-    "id": "room-10",
-    "name": "Creator10",
-    "title": "Just vibing",
-    "gender": "Couples",
-    "region": "Europe",
-    "tags": [
-      "cosplay",
-      "music"
-    ],
-    "rate": 12,
-    "viewers": 538,
-    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    "tips": [
-      {
-        "label": "Sticker pack",
-        "amount": 30
-      }
-    ]
-  },
-  {
-    "id": "room-11",
+    "id": 11,
     "name": "Creator11",
-    "title": "Hanging out & chatting",
-    "gender": "Women",
-    "region": "North America",
-    "tags": [
-      "games",
-      "music"
-    ],
-    "rate": 90,
-    "viewers": 3667,
-    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    "tips": [
-      {
-        "label": "Sticker pack",
-        "amount": 30
-      }
-    ]
-  },
-  {
-    "id": "room-12",
-    "name": "Creator12",
-    "title": "Hanging out & chatting",
-    "gender": "Men",
-    "region": "Europe",
-    "tags": [
-      "cosplay",
-      "new"
-    ],
-    "rate": 6,
-    "viewers": 5692,
-    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    "tips": [
-      {
-        "label": "Sticker pack",
-        "amount": 30
-      }
-    ]
-  },
-  {
-    "id": "room-13",
-    "name": "Creator13",
-    "title": "Game night",
-    "gender": "Men",
-    "region": "Europe",
-    "tags": [
-      "games",
-      "cosplay"
-    ],
-    "rate": 12,
-    "viewers": 399,
-    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    "tips": [
-      {
-        "label": "Sticker pack",
-        "amount": 30
-      }
-    ]
-  },
-  {
-    "id": "room-14",
-    "name": "Creator14",
-    "title": "New here!",
-    "gender": "Women",
-    "region": "Europe",
-    "tags": [
-      "new",
-      "games"
-    ],
-    "rate": 60,
-    "viewers": 1698,
-    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    "tips": [
-      {
-        "label": "Sticker pack",
-        "amount": 30
-      }
-    ]
-  },
-  {
-    "id": "room-15",
-    "name": "Creator15",
-    "title": "Game night",
-    "gender": "Couples",
-    "region": "South America",
-    "tags": [
-      "cosplay",
-      "chatting"
-    ],
-    "rate": 12,
-    "viewers": 518,
-    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    "tips": [
-      {
-        "label": "Sticker pack",
-        "amount": 30
-      }
-    ]
-  },
-  {
-    "id": "room-16",
-    "name": "Creator16",
-    "title": "Just vibing",
-    "gender": "Couples",
+    "watching": 3568,
     "region": "Asia",
+    "rate": 30,
+    "gender": "Couples",
+    "tags": [
+      "gaming"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Creator12",
+    "watching": 6031,
+    "region": "Europe",
+    "rate": 6,
+    "gender": "Men",
     "tags": [
       "games",
-      "new"
-    ],
-    "rate": 90,
-    "viewers": 6222,
-    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    "tips": [
-      {
-        "label": "Sticker pack",
-        "amount": 30
-      }
-    ]
-  },
-  {
-    "id": "room-17",
-    "name": "Creator17",
-    "title": "New here!",
-    "gender": "Men",
-    "region": "North America",
-    "tags": [
-      "new",
-      "games"
-    ],
-    "rate": 60,
-    "viewers": 4444,
-    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    "tips": [
-      {
-        "label": "Sticker pack",
-        "amount": 30
-      }
-    ]
-  },
-  {
-    "id": "room-18",
-    "name": "Creator18",
-    "title": "New here!",
-    "gender": "Women",
-    "region": "South America",
-    "tags": [
-      "new",
       "cosplay"
-    ],
-    "rate": 60,
-    "viewers": 2640,
-    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    "tips": [
-      {
-        "label": "Sticker pack",
-        "amount": 30
-      }
     ]
   },
   {
-    "id": "room-19",
-    "name": "Creator19",
-    "title": "Hanging out & chatting",
-    "gender": "Women",
+    "id": 13,
+    "name": "Creator13",
+    "watching": 2905,
     "region": "South America",
+    "rate": 60,
+    "gender": "Women",
     "tags": [
       "games",
-      "chatting"
-    ],
-    "rate": 60,
-    "viewers": 1765,
-    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    "tips": [
-      {
-        "label": "Sticker pack",
-        "amount": 30
-      }
+      "cosplay"
     ]
   },
   {
-    "id": "room-20",
-    "name": "Creator20",
-    "title": "Hanging out & chatting",
-    "gender": "Trans",
+    "id": 14,
+    "name": "Creator14",
+    "watching": 4853,
+    "region": "Asia",
+    "rate": 60,
+    "gender": "Couples",
+    "tags": [
+      "chatting",
+      "music"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Creator15",
+    "watching": 3146,
     "region": "North America",
+    "rate": 12,
+    "gender": "Trans",
+    "tags": [
+      "games",
+      "cosplay"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Creator16",
+    "watching": 4626,
+    "region": "North America",
+    "rate": 12,
+    "gender": "Couples",
+    "tags": [
+      "games",
+      "cosplay"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Creator17",
+    "watching": 6624,
+    "region": "Europe",
+    "rate": 60,
+    "gender": "Trans",
+    "tags": [
+      "gaming"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Creator18",
+    "watching": 723,
+    "region": "Europe",
+    "rate": 6,
+    "gender": "Couples",
     "tags": [
       "new",
       "chatting"
-    ],
-    "rate": 90,
-    "viewers": 288,
-    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    "tips": [
-      {
-        "label": "Sticker pack",
-        "amount": 30
-      }
     ]
   },
   {
-    "id": "room-21",
-    "name": "Creator21",
-    "title": "Game night",
-    "gender": "Men",
-    "region": "North America",
+    "id": 19,
+    "name": "Creator19",
+    "watching": 5834,
+    "region": "Asia",
+    "rate": 30,
+    "gender": "Trans",
     "tags": [
-      "music",
-      "chatting"
-    ],
+      "music"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Creator20",
+    "watching": 3468,
+    "region": "South America",
     "rate": 12,
-    "viewers": 4405,
-    "streamUrl": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    "tips": [
-      {
-        "label": "Sticker pack",
-        "amount": 30
-      }
+    "gender": "Couples",
+    "tags": [
+      "games",
+      "cosplay"
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Creator21",
+    "watching": 5927,
+    "region": "Europe",
+    "rate": 30,
+    "gender": "Women",
+    "tags": [
+      "chatting",
+      "music"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Creator22",
+    "watching": 4133,
+    "region": "Europe",
+    "rate": 30,
+    "gender": "Couples",
+    "tags": [
+      "chatting",
+      "music"
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Creator23",
+    "watching": 6849,
+    "region": "North America",
+    "rate": 6,
+    "gender": "Men",
+    "tags": [
+      "chatting",
+      "music"
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Creator24",
+    "watching": 5064,
+    "region": "Asia",
+    "rate": 12,
+    "gender": "Men",
+    "tags": [
+      "games",
+      "cosplay"
     ]
   }
 ]

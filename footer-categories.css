@@ -1,0 +1,12 @@
+/* css/footer-categories.css */
+.footer-categories{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:32px;
+  margin-top:24px;
+  align-items:start;
+}
+.footer-categories .footer-col h4{ margin:0 0 8px 0; font-weight:600; }
+.footer-categories .footer-col ul{ list-style:none; margin:0; padding:0; display:grid; gap:6px; font-size:0.95rem; }
+@media (max-width:1024px){ .footer-categories{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
+@media (max-width:640px){ .footer-categories{ grid-template-columns:1fr; } }

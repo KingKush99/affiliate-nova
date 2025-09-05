@@ -1,1 +1,136 @@
-Swag and gear (demo).
+<!doctype html><html><head>
+    <meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+    <title>Merch – Novelty Cams</title>
+    <link rel="stylesheet" href="css/styles.css"></head><body>
+    
+<header class="header">
+  <h1>Novelty Cams</h1>
+  <div class="chips">
+    <span class="chip active" data-filter="all">All</span>
+    <span class="chip" data-filter="women">Women</span>
+    <span class="chip" data-filter="men">Men</span>
+    <span class="chip" data-filter="couples">Couples</span>
+    <span class="chip" data-filter="trans">Trans</span>
+  </div>
+  <div style="margin-left:auto;color:#9fb2cd"> <span id="roomsCount">0</span> rooms</div>
+</header>
+<button id="btnProfile" class="corner" title="Profile">👤</button>
+<button id="btnMenu" class="corner" title="Menu">☰</button>
+<button id="btnChat" class="corner" title="Help">💬</button>
+<button id="btnSlots" class="corner" title="Slots">🎰</button>
+<div id="panelMenu" class="panel">
+  <h3 style="margin:0 0 8px 0">Menu</h3>
+  <div class="chips" style="margin-bottom:10px">
+    <a class="chip" href="profile.html">Profile</a>
+    <a class="chip" href="partner.html">Virtual Girlfriend</a>
+    <a class="chip" href="quiz.html">Quizzes</a>
+  </div>
+  <a class="chip" href="merch.html">Merch</a>
+</div>
+<div id="panelChat" class="panel">
+  <h3 style="margin:0 0 8px 0">Support Chat</h3>
+  <div id="chatLog"></div>
+  <div style="margin-top:8px;display:flex;gap:8px">
+    <input id="chatInput" class="input" placeholder="Ask something…"/>
+    <button id="chatSend" class="primary">Send</button>
+  </div>
+</div>
+<div id="panelSlots" class="panel">
+  <h3 style="margin:0 0 8px 0">Mini Slots</h3>
+  <div id="slotsRow" style="font-size:28px;margin:8px 0">⭐ 💎 🍒</div>
+  <div style="display:flex;gap:8px;align-items:center">
+    Bet <select id="bet"><option>10</option><option>25</option><option>50</option><option>100</option></select>
+    Reels <select id="reels"><option>3</option><option>4</option><option>5</option><option>6</option></select>
+    <button id="spin" class="primary">Spin</button>
+  </div>
+  <div id="spinResult" style="margin-top:8px;color:#a7c9ff"></div>
+  <div style="margin-top:6px">Tokens: <b id="tokens">500</b> <button id="watchEarn" class="chip">Watch video +10</button></div>
+</div>
+
+    <main class="container"><h2>Merch</h2><p>Stub page. Replace with your content.</p></main>
+    
+<footer>
+  <div class="footer-top container">
+    <div>
+      <h4>Cams by Age</h4>
+      <a href="search.html?age=teen">Teen (18+)</a>
+      <a href="search.html?age=18-21">18–21</a>
+      <a href="search.html?age=20-30">20–30</a>
+      <a href="search.html?age=30-50">30–50</a>
+      <a href="search.html?age=50+">50+</a>
+    </div>
+    <div>
+      <h4>Cams by Region</h4>
+      <a href="search.html?region=north-america">North America</a>
+      <a href="search.html?region=other">Other Regions</a>
+      <a href="search.html?region=euro-russian">Euro Russian</a>
+      <a href="search.html?region=asia">Asia</a>
+      <a href="search.html?region=south-america">South America</a>
+    </div>
+    <div>
+      <h4>Available Private Shows</h4>
+      <a href="search.html?rate=6">6 Tokens / min</a>
+      <a href="search.html?rate=12-18">12–18 Tokens / min</a>
+      <a href="search.html?rate=30-42">30–42 Tokens / min</a>
+      <a href="search.html?rate=60-72">60–72 Tokens / min</a>
+      <a href="search.html?rate=90+">90+ Tokens / min</a>
+    </div>
+    <div>
+      <h4>Cams by Status</h4>
+      <a href="search.html?status=private">Private Shows</a>
+      <a href="search.html?status=new">New Cams</a>
+      <a href="search.html?status=gaming">Gaming Cams</a>
+    </div>
+    <div>
+      <h4>Cams</h4>
+      <a href="search.html?type=featured">Featured Cams</a>
+      <a href="search.html?type=female">Female Cams</a>
+      <a href="search.html?type=male">Male Cams</a>
+      <a href="search.html?type=couple">Couple Cams</a>
+      <a href="search.html?type=trans">Trans Cams</a>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <a href="#" data-modal="terms">Terms & Conditions</a> |
+    <a href="#" data-modal="privacy">Privacy Policy</a> |
+    <a href="#" data-modal="support">Support</a> |
+    <a href="#" data-modal="dmca">DMCA / Remove Content</a> |
+    <a href="#" data-modal="feedback">Feedback</a> |
+    <a href="#" data-modal="security">Security Center</a> |
+    <a href="#" data-modal="report">Report</a> |
+    <a href="apps.html">Apps</a> |
+    <a href="merch.html">Merch</a> |
+    <a href="#" data-modal="billing">Billing</a> |
+    <a href="#" data-modal="disable">Disable Account</a>
+    <div class="lang">
+      <label>Language </label>
+      <select id="langSelect">
+        <option value="en" selected>English</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+        <option value="it">Italiano</option>
+        <option value="pt">Português</option>
+        <option value="pl">Polski</option>
+        <option value="ru">Русский</option>
+        <option value="ja">日本語</option>
+        <option value="ko">한국어</option>
+      </select>
+    </div>
+  </div>
+</footer>
+<div id="modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:50;align-items:center;justify-content:center">
+  <div style="background:#0f2034;border:1px solid #284766;border-radius:12px;max-width:700px;width:90%;padding:16px">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <h3 id="modalTitle" style="margin:0"></h3>
+      <button id="modalClose" class="chip">Close</button>
+    </div>
+    <div id="modalBody" style="margin-top:8px;color:#b7cbdf"></div>
+  </div>
+</div>
+<script src="js/i18n.js"></script>
+<script src="js/footer.js"></script>
+
+    <script src="js/i18n.js"></script><script src="js/footer.js"></script>
+    <script>document.getElementById('btnProfile').onclick=()=>location.href='profile.html';</script>
+    </body></html>

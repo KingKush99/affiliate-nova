@@ -1,0 +1,42 @@
+[
+  {
+    "id": "shirt1",
+    "name": "Nova Tee",
+    "category": "Shirts",
+    "price": 24.99,
+    "rating": 4.7,
+    "color": "teal",
+    "desc": "Soft cotton tee with glowing Nova logo.",
+    "img": "img/tee.png"
+  },
+  {
+    "id": "hood1",
+    "name": "Starlight Hoodie",
+    "category": "Sweaters",
+    "price": 49.0,
+    "rating": 4.9,
+    "color": "purple",
+    "desc": "Fleece hoodie with neon piping.",
+    "img": "img/hoodie.png"
+  },
+  {
+    "id": "cap1",
+    "name": "Orbit Cap",
+    "category": "Hats",
+    "price": 19.0,
+    "rating": 4.5,
+    "color": "blue",
+    "desc": "Curved brim cap with embroidered icon.",
+    "img": "img/cap.png"
+  },
+  {
+    "id": "bag1",
+    "name": "Goodie Bag",
+    "category": "Goodie Bags",
+    "price": 29.0,
+    "rating": 4.8,
+    "color": "pink",
+    "desc": "Bundle of stickers, pins and keychain.",
+    "img": "img/bag.png"
+  }
+]

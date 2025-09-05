@@ -1,0 +1,62 @@
+[
+  {
+    "id": "app1",
+    "name": "Blob Bots",
+    "desc": "Quick-play blob battle.",
+    "color": "#f94144"
+  },
+  {
+    "id": "app2",
+    "name": "Castle Siege",
+    "desc": "4-player RTS battle.",
+    "color": "#f3722c"
+  },
+  {
+    "id": "app3",
+    "name": "Classic War",
+    "desc": "Flip cards to beat opponent.",
+    "color": "#f9c74f"
+  },
+  {
+    "id": "app4",
+    "name": "Cosmic Jackpot",
+    "desc": "Spin for mega stack jackpot.",
+    "color": "#90be6d"
+  },
+  {
+    "id": "app5",
+    "name": "Big Fish",
+    "desc": "Become the biggest fish.",
+    "color": "#43aa8b"
+  },
+  {
+    "id": "app6",
+    "name": "Escape Prison",
+    "desc": "Choice-based adventure.",
+    "color": "#577590"
+  },
+  {
+    "id": "app7",
+    "name": "Rock Paper Scissors",
+    "desc": "Classic timed game.",
+    "color": "#f3722c"
+  },
+  {
+    "id": "app8",
+    "name": "Get On Top",
+    "desc": "2v2 physics duel.",
+    "color": "#277da1"
+  },
+  {
+    "id": "app9",
+    "name": "Hangman",
+    "desc": "Guess the word!",
+    "color": "#e76f51"
+  },
+  {
+    "id": "app10",
+    "name": "Header Hustle",
+    "desc": "1v1 soccer headers.",
+    "color": "#f9844a"
+  }
+]

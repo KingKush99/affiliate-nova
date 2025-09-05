@@ -1,0 +1,139 @@
+
+:root{
+  --bg:#0b1620;
+  --panel:#0d1c28;
+  --card:#102234;
+  --text:#dfe8f5;
+  --muted:#89a1b7;
+  --accent:#17c6ff;
+  --orange:#ffa53b;
+  --red:#ff4d4f;
+  --line:#1e3446;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji','Segoe UI Emoji';
+  line-height:1.35;
+  /* keep corners clear for big circular buttons */
+  padding: 140px 140px 140px 140px;
+}
+a{color:#cfe7ff;text-decoration:none}
+a:hover{color:var(--orange)}
+a.visited-hover:hover{color:var(--red)}
+header{
+  position:sticky; top:0; z-index:20;
+  background:linear-gradient(180deg, rgba(11,22,32,.95), rgba(11,22,32,.6));
+  backdrop-filter: blur(6px);
+  border-bottom:1px solid var(--line);
+}
+.navbar{
+  max-width:1200px; margin:0 auto; padding:12px 16px;
+  display:flex; align-items:center; justify-content:center; gap:20px;
+  font-weight:600;
+}
+.navbar a{padding:8px 12px;border-radius:12px}
+.navbar a:hover{background:rgba(255,255,255,.06)}
+
+.container{max-width:1200px;margin:24px auto;padding:0 16px}
+
+.section-title{display:flex;align-items:center;justify-content:space-between;margin:16px 0 8px}
+.section-title h2{margin:0;font-size:20px}
+.grid{
+  display:grid;gap:16px;
+  grid-template-columns: repeat( auto-fill, minmax(260px, 1fr) );
+}
+.card{
+  background:linear-gradient(180deg,#0f2132,#0a1a27);
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden; position:relative;
+  min-height:160px;
+}
+.card .thumb{height:120px; background:radial-gradient( circle at 20% 20%, #1a3650, #0d1c28 60% );display:flex;align-items:center;justify-content:center;font-size:42px;color:#2c5170}
+.card .meta{padding:10px 12px;display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--muted)}
+.badges{display:flex;flex-wrap:wrap;gap:6px}
+.badge{font-size:11px;padding:4px 8px;background:#122a3d;border:1px solid #213b50;border-radius:999px;color:#b8d8ff}
+
+.vpartner{
+  background:linear-gradient(180deg,#12283b,#0e1f2f);
+  border:1px solid var(--line);
+  border-radius:16px; overflow:hidden;
+}
+.vpartner-head{padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
+.vpartner-media{position:relative;height:240px;background:radial-gradient(ellipse at center,#20435e,#0e1f2f);display:flex;align-items:center;justify-content:center}
+.partner-avatar{
+  width:160px;height:160px;border-radius:50%;
+  background: radial-gradient(circle at 30% 30%, #ffd6e7 0, #f0b8cf 50%, #d89fb8 70%, #bf86a1 85%, #a56d8a 100%);
+  border:6px solid rgba(255,255,255,.07);
+  box-shadow: 0 10px 60px rgba(23,198,255,.25), inset 0 2px 24px rgba(255,255,255,.2);
+  animation: breathe 3s infinite ease-in-out;
+}
+@keyframes breathe{0%,100%{transform:scale(.98)}50%{transform:scale(1.02)}}
+.partner-controls{display:flex;gap:8px;padding:12px 16px;background:#0b1a27;border-top:1px solid var(--line)}
+.btn{
+  cursor:pointer; user-select:none;
+  background:#133048;color:#d9eeff;border:1px solid #244d67;border-radius:12px;
+  padding:8px 12px;font-weight:600;font-size:13px;
+}
+.btn:hover{background:#153a5b}
+.btn-accent{background:var(--accent);color:#05273a;border:none}
+.btn-circle{
+  width:120px;height:120px;border-radius:50%;
+  position:fixed; z-index:50;
+  display:flex;align-items:center;justify-content:center;
+  background: radial-gradient( circle at 30% 30%, #1e415a, #0a1a27 );
+  border:2px solid #2a4d66;color:#d6ecff;font-weight:800;box-shadow:0 8px 28px rgba(0,0,0,.35);
+}
+.btn-circle:hover{outline:3px solid rgba(23,198,255,.25)}
+.btn-profile{top:12px;left:12px}
+.btn-menu{top:12px;right:12px}
+.btn-slots{bottom:12px;right:12px}
+.btn-chat{bottom:12px;left:12px}
+
+/* Chat drop-up */
+.chat-dropup{position:fixed;left:12px;bottom:140px;width:320px;max-height:60vh;background:#0d2030;border:1px solid var(--line);border-radius:16px;display:none;flex-direction:column;z-index:40}
+.chat-dropup.open{display:flex}
+.chat-head{padding:10px 12px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}
+.chat-body{padding:12px;gap:10px;overflow:auto;display:flex;flex-direction:column}
+.msg{background:#0f2436;border:1px solid #1f3c52;border-radius:12px;padding:8px 10px;font-size:13px}
+.msg.me{align-self:flex-end;background:#133a55;border-color:#285b7a}
+.chat-foot{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line)}
+.chat-foot input[type=file]{display:none}
+.input{flex:1;background:#0b1e2c;color:var(--text);border:1px solid #274158;border-radius:10px;padding:8px}
+
+/* Hamburger dropdown */
+.menu-panel{position:fixed;right:12px;top:140px;width:260px;background:#0e202f;border:1px solid var(--line);border-radius:16px;display:none;z-index:45}
+.menu-panel.open{display:block}
+.menu-panel a{display:block;padding:10px 12px;border-bottom:1px solid #163043}
+.menu-panel a:last-child{border-bottom:none}
+
+/* Footer */
+footer{margin-top:48px;border-top:1px solid var(--line);background:#08131c}
+.footer-top{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;max-width:1200px;margin:0 auto;padding:16px}
+.footer-top h4{margin:6px 0 8px;font-size:13px;color:#cfe7ff;text-transform:uppercase;letter-spacing:.04em}
+.footer-top ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.footer-sep{border:0;border-top:1px solid var(--line);margin:0}
+.footer-bottom{
+  max-width:1200px;margin:0 auto;padding:12px 16px;
+  display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center;
+}
+.footer-bottom a{font-size:13px}
+/* link state handling */
+a[data-visited="1"]{}
+a[data-visited="1"].hoverable:hover{color:var(--red)!important}
+/* Language dropdown appearance */
+.lang-select{
+  background:#0d2131;color:#fff;border:1px solid #294356;border-radius:10px;padding:6px 10px;
+}
+.lang-select option{background:#132737;color:#fff}
+/* ensure footer stays at bottom visual */
+.spacer{height:24px}
+@media (max-width:900px){
+  .footer-top{grid-template-columns: repeat(2,1fr)}
+  body{padding:120px}
+  .btn-circle{width:96px;height:96px}
+}
